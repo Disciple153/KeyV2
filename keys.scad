@@ -56,7 +56,7 @@ include <./includes.scad>
 //   }
 // }
 
-
+row_distance = 0.6;
 
 module key_total(key_legends, key_rows, key_fonts, key_size) {
   total = len(key_legends);
@@ -64,7 +64,7 @@ module key_total(key_legends, key_rows, key_fonts, key_size) {
 
   for (i = [0:total-1]) {
     x = i % root;
-    y = floor(i / root);
+    y = floor(i / root) * row_distance;
 
     $inset_legend_depth = 0;
     
@@ -91,7 +91,7 @@ module key_body(key_legends, key_rows, key_fonts, key_size) {
 
   for (i = [0:total-1]) {
     x = i % root;
-    y = floor(i / root);
+    y = floor(i / root) * row_distance;
     
     translate_u(x, -y)
 
@@ -152,10 +152,10 @@ key_fonts = [
 ];
 
 key_size = [
-  4,4,4,4,4,4,3,    4,4,4,4,4,4,4,
-  3,5,5,5,5,5,5,    5,5,5,5,5,5,5,
-  5,5,5,5,5,5,5,    5,5,5,5,5,5,5,
-  3,5,5,5,5,5,3,    3,5,5,5,5,5,5,
+  4,4,4,4,4,4,3,    5,4,4,4,4,4,5,
+  3,5,5,5,5,5,4,    4,5,5,5,5,5,4,
+  5,5,5,5,5,5,4,    4,5,5,5,5,4,4,
+  3,5,5,5,5,5,3,    3,5,5,4,4,4,5,
         5,3,5,5,    5,5,3,3,
 ];
 
