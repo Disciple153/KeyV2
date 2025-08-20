@@ -71,7 +71,7 @@ module key_total(key_legends, key_rows, key_fonts, key_size) {
     translate_u(x, -y)
     custom_row(key_rows[i])
     frontside()
-    front_legend(key_legends[i], size=key_size[i])
+    front_legend(key_legends[i], size=key_size[i], font = key_fonts[i])
     key();
   }
 }
@@ -98,7 +98,7 @@ module key_body(key_legends, key_rows, key_fonts, key_size) {
     difference() {
       custom_row(key_rows[i])
       frontside()
-      front_legend(key_legends[i], size=key_size[i])
+      front_legend(key_legends[i], size=key_size[i], font = key_fonts[i])
       key();
       
       // Subtract cube - adjust dimensions as needed
@@ -130,7 +130,7 @@ key_legends = [
   "TAB",  "q",  "w",  "e",  "r",  "t", "-_",       "=+", "y", "u", "i", "o", "p", "\|",
   "⇪",    "a",  "s",  "d",  "f",  "g", "[{",       "]}", "h", "j", "k", "l", ";:", "'\"",
   "CTRL", "z",  "x",  "c",  "v",  "b", "HOME",     "END", "n", "m", ",<", ".>", "/?", "⏎",
-                        "⊞", "ALT", "⎵", "⇪",      "⇪", "⎵", "FN", "INS",
+                        "⊞", "ALT", "﹈", "⇪",      "⇪", "⎵", "FN", "INS",
 ];
 
 key_rows = [
@@ -141,14 +141,15 @@ key_rows = [
         2,2,2,2,    2,2,2,2,
 ];
 
-c = "Consolas";
+c = "Consolas:style=Regular";
+n = "DejaVu Sans";
 
 key_fonts = [
+  c,c,c,c,c,c,c,    n,c,c,c,c,c,n,
   c,c,c,c,c,c,c,    c,c,c,c,c,c,c,
-  c,c,c,c,c,c,c,    c,c,c,c,c,c,c,
-  c,c,c,c,c,c,c,    c,c,c,c,c,c,c,
-  c,c,c,c,c,c,c,    c,c,c,c,c,c,c,
-        c,c,c,c,    c,c,c,c,
+  n,c,c,c,c,c,c,    c,c,c,c,c,c,c,
+  c,c,c,c,c,c,c,    c,c,c,c,c,c,n,
+        n,c,n,n,    n,n,c,c,
 ];
 
 key_size = [
